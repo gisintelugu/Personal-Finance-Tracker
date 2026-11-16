@@ -13,7 +13,7 @@ A single-page, Google Sheets-backed personal finance tracker. Each user signs in
 
 ## Setup
 
-1. In Google Cloud Console, select your project and enable **Google Sheets API**.
+1. In Google Cloud Console, select your project and enable both **Google Sheets API** and **Google Drive API**.
 2. Configure **Google Auth Platform**. For initial testing, use **External** audience and add your Google account under **Test users**.
 3. Create an OAuth client of type **Web application**.
 4. Add this Authorized JavaScript origin:
@@ -25,7 +25,7 @@ The OAuth consent configuration and Google API enablement are required even when
 
 ## Data and privacy
 
-The app accesses Google Sheets using the signed-in user's OAuth access token. Tokens remain in page memory and are not written to local storage. The Sheets API scope currently requested is `https://www.googleapis.com/auth/spreadsheets`; this is broad spreadsheet access for the signed-in user. Users should connect only spreadsheets they intend this app to read and update.
+The app accesses Google Sheets using the signed-in user's OAuth access token. Tokens remain in page memory and are not written to local storage. The app currently requests `https://www.googleapis.com/auth/spreadsheets` for access to user-selected existing spreadsheets and `https://www.googleapis.com/auth/drive.file` to create its own spreadsheet through Google Drive. Google classifies `drive.file` as the recommended, app-specific file scope. The app does not request general access to all Drive files. Users should connect only spreadsheets they intend this app to read and update.
 
 The repository is public, so never commit OAuth client secrets, bank credentials, or personal financial data. The OAuth Client ID is a public identifier; it is not a secret.
 
