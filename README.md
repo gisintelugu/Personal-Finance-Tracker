@@ -5,6 +5,7 @@ A single-page, Google Sheets-backed personal finance tracker. Each user signs in
 ## Current capabilities
 
 - Multiple bank accounts and opening balances
+- Edit account name, bank name, account type, and opening balance without changing the account ID or transaction links
 - Income and expense transactions
 - Transfers between accounts (paired transfer-in / transfer-out rows; excluded from income and expense totals)
 - EMI and recurring expense plans
