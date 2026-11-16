@@ -9,6 +9,7 @@ A single-page, Google Sheets-backed personal finance tracker. Each user signs in
 - Transfers between accounts (paired transfer-in / transfer-out rows; excluded from income and expense totals)
 - EMI and recurring expense plans
 - Manual payment confirmation, with a transaction recorded in the selected account
+- Remembers the last connected spreadsheet ID in the current browser for quick reopening (Google sign-in is still required each session)
 - Dashboard totals, account balances, payment reminders, and basic transaction filters
 
 ## Setup
