@@ -1,6 +1,75 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Personal Finance Tracker</title><script src="https://accounts.google.com/gsi/client" async defer></script><style>
 :root{font-family:Inter,system-ui,Arial,sans-serif;color:#172033;background:#f4f6fa}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1180px;margin:auto;padding:28px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.brand{font-size:24px;font-weight:800}.sub{color:#667085;font-size:14px;margin-top:4px}.card{background:white;border:1px solid #e6eaf0;border-radius:16px;padding:20px;margin:18px 0;box-shadow:0 5px 18px #17203308}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:180px}label{font-size:13px;color:#596579}input,select{padding:11px 12px;border:1px solid #d8deea;border-radius:9px;font:inherit;background:white}button{border:0;border-radius:9px;padding:11px 16px;background:#2457d6;color:white;font-weight:650;cursor:pointer}button.secondary{background:#edf2ff;color:#234bb0}button.danger{background:#fff0f0;color:#b42318}button:disabled{opacity:.5;cursor:not-allowed}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tabs button{background:#e9edf5;color:#465268}.tabs button.active{background:#2457d6;color:white}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.stat{background:#f7f9fc;padding:16px;border-radius:12px}.stat small{color:#667085}.stat strong{display:block;font-size:24px;margin-top:8px}.positive{color:#07845c}.negative{color:#c0392b}.hidden{display:none!important}.notice{padding:12px 14px;border-radius:10px;background:#eaf7ef;color:#17663b;margin-top:16px}.notice.err{background:#fff0f0;color:#b42318}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:12px;border-bottom:1px solid #edf0f4;font-size:14px}th{color:#667085;font-size:11px;letter-spacing:.06em} .scroll{overflow:auto}.muted{color:#667085}.pill{padding:4px 8px;border-radius:20px;background:#eef2f8;font-size:12px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}h2{font-size:18px;margin:0 0 14px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.account{border:1px solid #e8ecf2;border-radius:12px;padding:16px}.account strong{display:block;font-size:20px;margin-top:10px}.foot{font-size:12px;color:#778196;margin-top:24px}dialog{width:min(520px,calc(100% - 28px));border:0;border-radius:16px;padding:22px;box-shadow:0 20px 70px #10182840;color:#172033}dialog::backdrop{background:#17203380}.dialog-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.dialog-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.dialog-grid .field{min-width:0}@media(max-width:520px){.dialog-grid{grid-template-columns:1fr}}@media(max-width:600px){.wrap{padding:16px}.card{padding:15px}.brand{font-size:20px}}
+/* Responsive layout improvements */
+:focus-visible{outline:3px solid #8db4ff;outline-offset:2px}
+button,input,select{min-height:42px}
+.scroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+@media(max-width:760px){
+  .wrap{padding:18px}
+  .card{padding:17px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats .stat{min-width:0}
+  .stats .stat strong{font-size:clamp(18px,4.5vw,23px);overflow-wrap:anywhere}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tabs{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;padding:2px 1px 8px;margin:14px 0;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .tabs button{flex:0 0 auto;white-space:nowrap;min-height:44px}
+  .row{align-items:stretch}
+  .row>.field{flex:1 1 220px;min-width:0}
+}
+@media(max-width:600px){
+  html,body{width:100%;overflow-x:hidden}
+  body{font-size:15px}
+  .wrap{width:100%;padding:12px}
+  .top{align-items:flex-start;gap:12px}
+  .top>div:first-child{min-width:0;flex:1}
+  .brand{font-size:19px;line-height:1.25}
+  .sub{font-size:13px;line-height:1.4}
+  .top>div:last-child{display:flex;justify-content:flex-end;flex:0 0 auto}
+  .top button{padding:9px 11px;font-size:13px;min-height:40px}
+  .card{margin:12px 0;padding:14px;border-radius:13px}
+  .card>p{line-height:1.45}
+  h2{font-size:17px;line-height:1.3}
+  .notice{font-size:13px;line-height:1.45;overflow-wrap:anywhere;padding:11px}
+  .row{display:flex;flex-direction:column;align-items:stretch;gap:11px}
+  .row>.field{width:100%;flex:1 1 auto;min-width:0}
+  .row>button,.row>.field+button{width:100%;max-width:none}
+  .field{min-width:0;width:100%}
+  label{font-size:13px}
+  input,select{width:100%;min-width:0;min-height:46px;font-size:16px;padding:12px}
+  button{width:100%;min-height:46px;padding:12px 14px;font-size:15px}
+  .top button{width:auto}
+  .sectionhead{align-items:center}
+  .sectionhead button{width:auto;min-width:84px}
+  .tabs{gap:7px;margin:12px 0}
+  .tabs button{width:auto;padding:10px 13px;font-size:13px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .stat{padding:12px;border-radius:10px}
+  .stat small{font-size:11px;line-height:1.3}
+  .stat strong{font-size:18px;margin-top:6px}
+  .grid{grid-template-columns:1fr;gap:9px}
+  .account{padding:13px;min-width:0}
+  .account strong{font-size:19px;overflow-wrap:anywhere}
+  .scroll{width:100%;max-width:100%;overflow-x:auto;border:1px solid #edf0f4;border-radius:10px}
+  table{min-width:650px}
+  th,td{padding:10px;font-size:13px;white-space:nowrap}
+  .pill{white-space:nowrap}
+  dialog{width:calc(100% - 20px);max-width:520px;max-height:88vh;overflow-y:auto;padding:17px;margin:auto;border-radius:14px}
+  .dialog-head{align-items:center}
+  .dialog-head button{width:auto;min-width:70px}
+  .dialog-grid{grid-template-columns:1fr;gap:11px}
+  .dialog-actions{flex-direction:column-reverse}
+  .dialog-actions button{width:100%}
+  .foot{line-height:1.5;margin-top:18px}
+}
+@media(max-width:360px){
+  .wrap{padding:9px}
+  .card{padding:12px}
+  .brand{font-size:17px}
+  .stats{grid-template-columns:1fr}
+  .top{flex-wrap:wrap}
+  .top>div:last-child{width:100%;justify-content:flex-start}
+}
 </style></head><body><div class="wrap">
 <header class="top"><div><div class="brand">₹ Personal Finance Tracker</div><div class="sub">Your money, your spreadsheet, your control.</div></div><div><button id="signBtn" onclick="signIn()">Sign in with Google</button><button id="signOutBtn" class="secondary hidden" onclick="signOut()">Sign out</button></div></header>
 <div id="notice" class="notice hidden"></div>
