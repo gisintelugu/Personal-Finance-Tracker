@@ -36,3 +36,7 @@ The repository is public, so never commit OAuth client secrets, bank credentials
 This is an early GitHub Pages port. Test with a **new, empty spreadsheet** first. Existing spreadsheets must use the exact four sheet names and column order created by the app: `Accounts`, `Transactions`, `Fixed Expenses`, and `Dashboard Summary`.
 
 The current page includes core create/read workflows. Transaction editing/deletion, account editing, advanced date sorting, and comprehensive analytics are not yet implemented in this static version. Verify all data changes against the Google Sheet before using it for important financial records.
+
+## Mobile layout
+
+The interface includes responsive breakpoints for tablets and phones, compact two-column dashboard metrics, horizontally scrollable navigation and transaction tables, stacked input forms, larger touch targets, and a phone-friendly account edit dialog.
